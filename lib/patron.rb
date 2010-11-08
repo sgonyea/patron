@@ -28,16 +28,11 @@ require 'pathname'
 cwd = Pathname(__FILE__).dirname
 $:.unshift(cwd.to_s) unless $:.include?(cwd.to_s) || $:.include?(cwd.expand_path.to_s)
 
-require 'patron/session'
+require 'patron/version'
+require 'patron/error'
 
 module Patron #:nodoc:
-  # Returns the version number of the Patron library as a string
-  def self.version
-    cwd = Pathname(__FILE__).dirname.expand_path.to_s
-    yaml = YAML.load_file(cwd + '/../VERSION.yml')
-    major = (yaml['major'] || yaml[:major]).to_i
-    minor = (yaml['minor'] || yaml[:minor]).to_i
-    patch = (yaml['patch'] || yaml[:patch]).to_i
-    "#{major}.#{minor}.#{patch}"
-  end
+  autoload :Session,  'patron/session'
+  autoload :Request,  'patron/request'
+  autoload :Response, 'patron/response'
 end

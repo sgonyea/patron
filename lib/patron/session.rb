@@ -22,11 +22,7 @@
 ## THE SOFTWARE.
 ##
 ## -------------------------------------------------------------------
-require 'patron/error'
-require 'patron/request'
-require 'patron/response'
-require 'patron/session_ext'
-
+require 'patron'
 
 module Patron
 

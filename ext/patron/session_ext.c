@@ -107,7 +107,7 @@ VALUE libcurl_version(VALUE klass) {
   char* value = curl_version();
   return rb_str_new2(value);
 }
-
+/*
 // Initializes the libcurl handle on object initialization.
 // NOTE: This must be called from Session#initialize.
 VALUE session_ext_initialize(VALUE self) {
@@ -153,7 +153,7 @@ VALUE session_unescape(VALUE self, VALUE value) {
 
   return retval;
 }
-
+*/
 // Callback used to iterate over the HTTP headers and store them in an slist.
 static int each_http_header(VALUE header_key, VALUE header_value, VALUE self) {
   struct curl_state *state;
